@@ -1,0 +1,1 @@
+Simply Run the script file Lab7.ps1 and the script will install the module with command 'Install-Module PSWindowsUpDATE'. This script file will get and show your windows update history, and update windows update components
