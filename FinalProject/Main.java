@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Main 
 {
- public static double result = 0.0;
+ public static double result = 0.0;         //Constant use varriables
  public static boolean looped = false;
  public static boolean done = false;
  public static boolean calculating = true;
@@ -23,14 +23,14 @@ public class Main
      */
     public static void main(String[] args) 
     {
-     while(!done)
+     while(!done)   //Interactive loop with user
       {
         Scanner input = new Scanner(System.in);
         double num;
-        System.out.println("WARNING no order of operations");
-         while(calculating)
+        System.out.println("WARNING no order of operations"); 
+         while(calculating) //Loop to calcualte single calculation
          {
-            while(true)
+            while(true) //Error handling loop
             {
                 System.out.println("Please enter a number.");
                 str = input.nextLine();
@@ -44,7 +44,7 @@ public class Main
                     System.out.println("Invalid input");
                 }
             }
-            if(looped)
+            if(looped) //Requirements are different the first loop because "result" is initalized to 0.
             {
                 if(op.equals("="))
                 {
@@ -63,9 +63,9 @@ public class Main
                     calculateDbl(result, num, op);
                 }                
             }       
-            while(true)
+            while(true) //error handling loop
             {
-                System.out.println("Enter the operator, +, -, *, /, %, ^, =.");
+                System.out.println("Enter the operator, +, -, *, /, %, ^, =."); // % is used as "mod" which shows the remainder of division
                 str = input.nextLine();
                 if(str.equals("+") | str.equals("-") | str.equals("*") | str.equals("/") | str.equals("%") | str.equals("^") | str.equals("="))
                 {
@@ -77,7 +77,7 @@ public class Main
                 }
             }
             op = str;
-            if(!looped)
+            if(!looped) //Checks to see if calculation should end
             {
                 if(op.equals("="))
                 {
@@ -90,7 +90,7 @@ public class Main
                 }    
                 looped = true;   
             }
-            else
+            else //Checks to see if calculation should end
             {
                 if(op.equals("="))
                 {
@@ -101,16 +101,16 @@ public class Main
         System.out.println(result);
         System.out.println("Do you want to calculate again?");
         str = input.nextLine();
-        if(!(str.equals("yes") || str.equals("Yes")))
+        if(!(str.equals("yes") || str.equals("Yes"))) //Checks to see if user wants to preform another calculation
         {
            done = true; 
         }
-        calculating = true;
+        calculating = true; //Resets constants for next calculation
         result = 0;
         looped = false;
       }
     }
-    public static double calculateDbl(double a, double b, String operator)
+    public static double calculateDbl(double a, double b, String operator) //Used to calcuate basic operations
     {
      if(operator.equals("+"))
      {
@@ -130,12 +130,12 @@ public class Main
      }
      return result;
     }
-     public static double calculateDiv(double a, double b)
+     public static double calculateDiv(double a, double b) //Used to calculate division
     {
      result = (a / b);
      return result;
     }
-    public static double calculatePwr(double a, double b)
+    public static double calculatePwr(double a, double b) //Used to calcuate powers
     {
      result = 1;
      for(int j = 0; j < b; j++)
